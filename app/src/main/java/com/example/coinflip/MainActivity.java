@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         }else {
             builder.setTitle("Vereség");
         }
-        builder.setMessage("Szeretne új játékokót játszani?");
+        builder.setMessage("Szeretne új játékot játszani?");
         builder.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

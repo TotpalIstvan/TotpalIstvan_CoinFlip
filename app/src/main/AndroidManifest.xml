@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/heads"
-        android:label="@string/app_name"
+        android:label="CoinFlip"
         android:roundIcon="@drawable/heads"
         android:supportsRtl="true"
         android:theme="@style/Theme.CoinFlip">
