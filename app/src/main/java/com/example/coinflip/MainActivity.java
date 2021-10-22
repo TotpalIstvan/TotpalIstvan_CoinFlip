@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button fej,iras;
     private TextView dobasok,gyozelem,vereseg;
     private Random rand;
-    private int dobasSzam,gyozelemSzam,veresegSzam;
+    private int dobasSzam,gyozelemSzam,veresegSzam,animationIndex;
     private boolean porgethetE;
 
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (porgethetE) {
                     porgethetE = false;
-
+                    animacio(true);
                 }
             }
         });
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (porgethetE) {
                     porgethetE = false;
-
+                    animacio(false);
                 }
             }
         });
@@ -72,6 +73,28 @@ public class MainActivity extends AppCompatActivity {
             porgethetE = true;
         }
 
+    }
+
+    private void animacio(boolean fejTipp) {
+        if (animationIndex > 20) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (animationIndex % 2 == 0) {
+                        coin.setImageResource(R.drawable.heads);
+                    }
+                    else {
+                        coin.setImageResource(R.drawable.tails);
+                    }
+                    animationIndex++;
+                    animacio(fejTipp);
+                }
+            }, 50);
+        }
+        else {
+            animationIndex = 0;
+            dobas(fejTipp);
+        }
     }
 
     private  void eredmeny(boolean fej) {
